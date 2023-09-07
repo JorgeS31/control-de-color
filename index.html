@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Tonalidad de Color con Bootstrap</title>
+    <!-- Agrega el enlace a Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilo personalizado para el DIV */
+        #miDiv {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 0, 0); /* Color inicial: rojo */
+        }
+        /* Estilo para el pie de página */
+        footer {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado con barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Mi Página Web</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Cambiar Tonalidad de Color</h3>
+                <div id="miDiv"></div>
+                <label for="redRange">Rojo:</label>
+                <input type="range" id="redRange" class="form-range" min="0" max="255" value="255">
+                
+                <label for="greenRange">Verde:</label>
+                <input type="range" id="greenRange" class="form-range" min="0" max="255" value="0">
+                
+                <label for="blueRange">Azul:</label>
+                <input type="range" id="blueRange" class="form-range" min="0" max="255" value="0">
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página con datos de copyright -->
+    <footer>
+        <p>&copy; 2023 Mi Página Web. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Agrega los scripts de Bootstrap y JavaScript al final del cuerpo del documento -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        const miDiv = document.getElementById('miDiv');
+        const redRange = document.getElementById('redRange');
+        const greenRange = document.getElementById('greenRange');
+        const blueRange = document.getElementById('blueRange');
+
+        function actualizarColor() {
+            const redValue = redRange.value;
+            const greenValue = greenRange.value;
+            const blueValue = blueRange.value;
+
+            miDiv.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+        }
+
+        redRange.addEventListener('input', actualizarColor);
+        greenRange.addEventListener('input', actualizarColor);
+        blueRange.addEventListener('input', actualizarColor);
+    </script>
+</body>
+</html>
